@@ -1,0 +1,223 @@
+{
+  "tagline": "Ultraloper uit Diksmuide. Hij loopt door waar anderen stoppen.",
+  "prs": [
+    {
+      "label": "Backyard",
+      "value": "61 rondes",
+      "detail": "408,7 km · Last Man Standing, Terschelling 2026 · winnaar"
+    },
+    {
+      "label": "24 uur",
+      "value": "258,437 km",
+      "detail": "Belgisch kampioen · Mechelen 2026"
+    },
+    {
+      "label": "Legends Trail",
+      "value": "70:26",
+      "detail": "350 km door de Ardennen · 3e · 2026"
+    },
+    {
+      "label": "100 mijl",
+      "value": "14:21:45",
+      "detail": "HoHo100, Amersfoort 2025"
+    },
+    {
+      "label": "100 km",
+      "value": "8:34:48",
+      "detail": "tussentijd HoHo100, 2025"
+    },
+    {
+      "label": "50 km",
+      "value": "4:06:03",
+      "detail": "tussentijd HoHo100, 2025"
+    },
+    {
+      "label": "6 uur",
+      "value": "80,39 km",
+      "detail": "Sri Chinmoy 6-uursloop Amsterdam · winnaar · 2024"
+    },
+    {
+      "label": "FKT GR 130 IJzer",
+      "value": "10:54:32",
+      "detail": "111 km self-supported · record · december 2025"
+    }
+  ],
+  "impact": [
+    {
+      "value": "32.000",
+      "label": "mensen keken tegelijk naar de livestream op het piekmoment (RunningBE)"
+    },
+    {
+      "value": "61 uur",
+      "label": "live in beeld op Terschelling"
+    },
+    {
+      "value": "5+",
+      "label": "media brachten de zege op Terschelling, van VRT NWS tot FHM"
+    },
+    {
+      "value": "12",
+      "label": "eigen verhalen op Medium en RunningBE: hij schrijft ze zelf"
+    },
+    {
+      "value": "38",
+      "label": "ultra-uitslagen sinds 2018"
+    },
+    {
+      "value": "1 van 21",
+      "label": "finishers van de Legends Trail 2026"
+    }
+  ],
+  "press": [
+    {
+      "name": "VRT NWS",
+      "url": "https://www.vrt.be/vrtnws/nl/2026/10/05/ultraloper-diksmuide-bonne-sabbe-sam-bracke-wedstrijd-60-uur-las/"
+    },
+    {
+      "name": "RunningBE",
+      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/"
+    },
+    {
+      "name": "Runners.nl",
+      "url": "https://www.runners.nl/nieuws/6-7-kilometer-per-uur-tot-er-niemand-meer-over-is-dit-was-last-man-standing"
+    },
+    {
+      "name": "FHM",
+      "url": "https://fhm.nl/lifestyle/sam-bracke-is-de-ultieme-last-man-standing-na-bizarre-race-van-upfront"
+    },
+    {
+      "name": "Hardloopnieuws",
+      "url": "https://www.hardloopnieuws.nl/sam-bracke-wint-backyard-ultra-na-zestig-uur-lopen-uitslagen/"
+    },
+    {
+      "name": "L'Avenir",
+      "url": "https://www.lavenir.net/sports/running/2026/09/14/il-court-258-km-en-24-heures-sam-bracke-est-le-nouveau-champion-de-belgique-de-la-course-de-24-heures-6OFYIYTTANGHZBJSICRXYWFEPA/"
+    },
+    {
+      "name": "Atletiek Vlaanderen",
+      "url": "https://www.atletiek.be/nieuws/sam-bracke-en-wendy-walraet-belgisch-kampioen-24u"
+    },
+    {
+      "name": "KW.be",
+      "url": "https://kw.be/sport/de-meest-bijzondere-ultraloopervaring-uit-mijn-carriere-sam-33-uit-diksmuide-loopt-250-kilometer-tussen-athene-en-sparta-in-mythische-spartathlon/"
+    }
+  ],
+  "stories": [
+    {
+      "title": "Laatste man op Terschelling",
+      "race": "Upfront Last Man Standing · 61 rondes, 408,7 km",
+      "date": "2026-10-05",
+      "quote": "Ik startte met de ambitie om te tonen dat intrinsieke motivatie en pure passie voor wat je doet, je altijd het verst brengen.",
+      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/"
+    },
+    {
+      "title": "350 km door de winterse Ardennen",
+      "race": "Legends Trail 2026 · 3e in 70:26",
+      "date": "2026-02-19",
+      "quote": "Here is what 70 hours of running does to your body, your brain, and your sense of reality",
+      "url": "https://medium.com/runners-life/race-report-legends-trail-2026-350-kilometers-through-the-brutally-beautiful-ardennes-c45425ccfda2"
+    },
+    {
+      "title": "Van Athene naar Sparta",
+      "race": "Spartathlon 2025 · 246 km in 30:42:18",
+      "date": "2025-09-27",
+      "quote": "Een strijd tegen tijd, natuur, lichaam én geest.",
+      "url": "https://running.be/de-246-km-lange-spartathlon-door-de-ogen-van-onze-redacteur/"
+    },
+    {
+      "title": "Langs de IJzer, door de thuisstreek",
+      "race": "FKT GR 130 IJzer · 111 km in 10:54:32",
+      "date": "2025-12-27",
+      "quote": "on my bucket list for several reasons",
+      "url": "https://fastestknowntime.com/fkt/sam-bracke-gr-130-ijzer-belgium-france-2025-12-27",
+      "img": "img/ig-1.jpg"
+    },
+    {
+      "title": "De eerste backyard-zege",
+      "race": "Backyard ultra in het Verenigd Koninkrijk · 2024",
+      "date": "2024-06-21",
+      "quote": "Over 125 miles to celebrate my passion for running",
+      "url": "https://medium.com/runners-life/this-is-how-it-felt-to-win-my-first-backyard-ultra-82c30de61dcf"
+    }
+  ],
+  "timeline": [
+    {
+      "date": "2024-06-21",
+      "title": "Eerste backyard-zege",
+      "detail": "Longbridge 100 Backyard Ultra (VK), 194,5 km"
+    },
+    {
+      "date": "2025-02-01",
+      "title": "100 mijl in 14:21:45",
+      "detail": "HoHo100 Amersfoort, ticket voor de Spartathlon"
+    },
+    {
+      "date": "2025-09-27",
+      "title": "Spartathlon gefinisht",
+      "detail": "246 km van Athene naar Sparta in 30:42:18"
+    },
+    {
+      "date": "2025-10-18",
+      "title": "WK 24 uur met de Belgische ploeg",
+      "detail": "IAU WK in Albi, 233,4 km"
+    },
+    {
+      "date": "2025-12-27",
+      "title": "FKT GR 130 IJzer",
+      "detail": "111 km self-supported in 10:54:32, ruim een uur onder het oude record"
+    },
+    {
+      "date": "2026-02-19",
+      "title": "3e in de Legends Trail",
+      "detail": "350 km door de Ardennen in 70:26, slechts 21 finishers"
+    },
+    {
+      "date": "2026-07-03",
+      "title": "Winst Another One Bites the Dust",
+      "detail": "Backyard in Bierbeek, 34 uur, 258,8 km"
+    },
+    {
+      "date": "2026-09-12",
+      "title": "Belgisch kampioen 24 uur",
+      "detail": "258,437 km in Mechelen, 44 km voor nummer twee"
+    },
+    {
+      "date": "2026-10-02",
+      "title": "Winnaar Last Man Standing",
+      "detail": "Terschelling, 61 rondes en 408,7 km na een duel van ruim 60 uur"
+    }
+  ],
+  "instagram": [
+    {
+      "img": "img/ig-1.jpg",
+      "url": "https://www.instagram.com/brackesam/"
+    },
+    {
+      "img": "img/ig-2.jpg",
+      "url": "https://www.instagram.com/brackesam/"
+    },
+    {
+      "img": "img/ig-3.jpg",
+      "url": "https://www.instagram.com/brackesam/"
+    },
+    {
+      "img": "img/ig-4.jpg",
+      "url": "https://www.instagram.com/brackesam/"
+    },
+    {
+      "img": "img/ig-5.jpg",
+      "url": "https://www.instagram.com/brackesam/"
+    },
+    {
+      "img": "img/ig-6.jpg",
+      "url": "https://www.instagram.com/brackesam/"
+    }
+  ],
+  "pitch": "Sam houdt mensen urenlang vast: 61 uur lang keken duizenden mee hoe hij op Terschelling als laatste overbleef. Hij is Belgisch kampioen 24 uur en schrijft zijn verhalen zelf, voor Medium en RunningBE. Als Vlaming die ook in Nederland furore maakt, bereikt hij lopers in België én Nederland.",
+  "comparisons": {
+    "stepsPerKm": 1000,
+    "antwerpAmsterdamKm": 156,
+    "pieterpadKm": 498,
+    "shoeKm": 700
+  }
+}

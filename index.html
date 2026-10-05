@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sam Bracke · Ultraloper</title>
+<meta name="description" content="Sam Bracke, ultraloper. Winnaar Last Man Standing 2026: 61 rondes, 408,7 km.">
+<meta name="theme-color" content="#0b0b0a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Naar de inhoud</a>
+
+<header class="hero" id="top">
+  <div class="hero__inner wrap">
+    <p class="eyebrow">Ultraloper · Diksmuide</p>
+    <h1 class="hero__name">Sam<br>Bracke</h1>
+    <p class="hero__sub" id="tagline">Ultraloper · Winnaar Last Man Standing 2026 · 61 rondes, 408,7 km</p>
+    <p class="hero__tag" id="hero-tag" hidden></p>
+    <div class="btns">
+      <a class="btn btn--accent" href="https://www.instagram.com/brackesam/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn" href="https://www.linkedin.com/in/sam-bracke-02895a59/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section wrap" id="sinds" aria-labelledby="sinds-h" hidden>
+    <h2 class="kicker" id="sinds-h">Sinds de laatste run</h2>
+    <div class="timer" role="timer" aria-live="off">
+      <div class="timer__unit"><span class="timer__num" data-t="d">00</span><span class="timer__lbl">dagen</span></div>
+      <span class="timer__sep" aria-hidden="true">:</span>
+      <div class="timer__unit"><span class="timer__num" data-t="h">00</span><span class="timer__lbl">uren</span></div>
+      <span class="timer__sep" aria-hidden="true">:</span>
+      <div class="timer__unit"><span class="timer__num" data-t="m">00</span><span class="timer__lbl">min</span></div>
+      <span class="timer__sep" aria-hidden="true">:</span>
+      <div class="timer__unit"><span class="timer__num" data-t="s">00</span><span class="timer__lbl">sec</span></div>
+    </div>
+    <p class="timer__quip" id="quip"></p>
+    <p class="meta" id="lastrun"></p>
+  </section>
+
+  <section class="section wrap" id="kalender" aria-labelledby="kal-h" hidden>
+    <div class="section__head">
+      <h2 class="kicker" id="kal-h">Het jaar in kilometers</h2>
+      <p class="meta" id="kal-sum"></p>
+    </div>
+    <div class="heat" tabindex="0" aria-label="Jaarkalender, horizontaal scrollbaar">
+      <div class="heat__months" id="heat-months" aria-hidden="true"></div>
+      <div class="heat__grid" id="heat-grid"></div>
+    </div>
+    <div class="heat__foot">
+      <p class="heat__info" id="heat-info" aria-live="polite">Tik op een dag voor de kilometers.</p>
+      <div class="heat__legend" aria-hidden="true">minder <i data-l="0"></i><i data-l="1"></i><i data-l="2"></i><i data-l="3"></i><i data-l="4"></i> meer</div>
+    </div>
+  </section>
+
+  <section class="section wrap" id="tellers" aria-labelledby="tel-h" hidden>
+    <h2 class="kicker" id="tel-h">Dit jaar gelopen</h2>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="section wrap" id="prs" aria-labelledby="prs-h" hidden>
+    <h2 class="kicker" id="prs-h">Persoonlijke records</h2>
+    <div class="cards cards--prs" id="prs-list"></div>
+  </section>
+
+  <section class="section wrap" id="bereik" aria-labelledby="ber-h" hidden>
+    <h2 class="kicker" id="ber-h">Waarom Sam</h2>
+    <div class="impact" id="impact-list"></div>
+    <div class="press" id="press-wrap" hidden>
+      <p class="meta">In de pers</p>
+      <ul class="press__list" id="press-list"></ul>
+    </div>
+  </section>
+
+  <section class="section wrap" id="verhalen" aria-labelledby="ver-h" hidden>
+    <h2 class="kicker" id="ver-h">Verhalen</h2>
+    <div class="cards cards--stories" id="stories-list"></div>
+    <ol class="timeline" id="timeline" hidden></ol>
+  </section>
+
+  <section class="section wrap" id="instagram" aria-labelledby="ig-h" hidden>
+    <h2 class="kicker" id="ig-h">Op Instagram</h2>
+    <div class="ig" id="ig-list"></div>
+    <div class="btns"><a class="btn" href="https://www.instagram.com/brackesam/" target="_blank" rel="noopener">Volg @brackesam</a></div>
+  </section>
+
+  <section class="section wrap cta" id="samenwerken" aria-labelledby="sam-h">
+    <h2 class="cta__title" id="sam-h">Samenwerken?</h2>
+    <p class="cta__pitch" id="pitch">Sam loopt verder dan de meeste mensen rijden op een dag, en neemt zijn publiek mee in elke kilometer. Op zoek naar een partner die dat verhaal mee wil dragen.</p>
+    <div class="btns">
+      <a class="btn btn--accent" href="https://ig.me/m/brackesam" target="_blank" rel="noopener">Stuur Sam een bericht op Instagram</a>
+      <a class="btn" href="https://www.linkedin.com/in/sam-bracke-02895a59/" target="_blank" rel="noopener">Connect op LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer wrap">
+  <p id="footer-data">Data: voorbeelddata. Strava-koppeling volgt.</p>
+  <p>© Sam Bracke</p>
+</footer>
+<script src="app.js" defer></script>
+</body>
+</html>
