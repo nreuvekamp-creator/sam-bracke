@@ -27,11 +27,6 @@
       "detail": "tussentijd HoHo100, 2025"
     },
     {
-      "label": "50 km",
-      "value": "4:06:03",
-      "detail": "tussentijd HoHo100, 2025"
-    },
-    {
       "label": "6 uur",
       "value": "80,39 km",
       "detail": "Sri Chinmoy 6-uursloop Amsterdam · winnaar · 2024"
@@ -40,6 +35,31 @@
       "label": "FKT GR 130 IJzer",
       "value": "10:54:32",
       "detail": "111 km self-supported · record · december 2025"
+    },
+    {
+      "label": "Marathon",
+      "value": "2:39:09",
+      "detail": "snelste marathon volgens Strava · officieel PR 2:40:20"
+    },
+    {
+      "label": "Halve marathon",
+      "value": "1:19:16",
+      "detail": "snelste halve marathon volgens Strava"
+    },
+    {
+      "label": "10 km",
+      "value": "35:04",
+      "detail": "snelste 10 km volgens Strava · officieel PR 35:34"
+    },
+    {
+      "label": "5 km",
+      "value": "16:53",
+      "detail": "snelste 5 km volgens Strava"
+    },
+    {
+      "label": "50 km",
+      "value": "3:37:58",
+      "detail": "snelste 50 km volgens Strava · in wedstrijd 4:06:03"
     }
   ],
   "impact": [
@@ -50,6 +70,14 @@
     {
       "value": "61 uur",
       "label": "live in beeld op Terschelling"
+    },
+    {
+      "value": "2.059",
+      "label": "kudos op Strava voor zijn Terschelling-run, binnen een dag"
+    },
+    {
+      "value": "42.482 km",
+      "label": "gelopen sinds hij op Strava zit: meer dan één keer rond de aarde"
     },
     {
       "value": "5+",
@@ -108,21 +136,31 @@
       "race": "Upfront Last Man Standing · 61 rondes, 408,7 km",
       "date": "2026-10-05",
       "quote": "Ik startte met de ambitie om te tonen dat intrinsieke motivatie en pure passie voor wat je doet, je altijd het verst brengen.",
-      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/"
+      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/",
+      "img": "img/stories/terschelling.jpg",
+      "imgAlt": "Sam Bracke in het donker met hoofdlamp en capuchon (sfeerbeeld van een nachtelijke tocht, niet op Terschelling)",
+      "featured": true
     },
     {
       "title": "350 km door de winterse Ardennen",
       "race": "Legends Trail 2026 · 3e in 70:26",
       "date": "2026-02-19",
       "quote": "Here is what 70 hours of running does to your body, your brain, and your sense of reality",
-      "url": "https://medium.com/runners-life/race-report-legends-trail-2026-350-kilometers-through-the-brutally-beautiful-ardennes-c45425ccfda2"
+      "url": "https://medium.com/runners-life/race-report-legends-trail-2026-350-kilometers-through-the-brutally-beautiful-ardennes-c45425ccfda2",
+      "img": "img/stories/legends-trail.jpg",
+      "imgAlt": "Sam Bracke loopt over een modderig bospad in de Ardennen tijdens de Legends Trail",
+      "featured": true
     },
     {
       "title": "Van Athene naar Sparta",
       "race": "Spartathlon 2025 · 246 km in 30:42:18",
       "date": "2025-09-27",
       "quote": "Een strijd tegen tijd, natuur, lichaam én geest.",
-      "url": "https://running.be/de-246-km-lange-spartathlon-door-de-ogen-van-onze-redacteur/"
+      "url": "https://running.be/de-246-km-lange-spartathlon-door-de-ogen-van-onze-redacteur/",
+      "img": "img/stories/spartathlon.jpg",
+      "imgAlt": "Sam Bracke legt zijn hoofd tegen de voet van het Leonidas-beeld in Sparta, de finish van de Spartathlon",
+      "featured": true,
+      "imgCredit": "Foto: Alexandros Mpougadis (Studio Photography)"
     },
     {
       "title": "Langs de IJzer, door de thuisstreek",
@@ -130,14 +168,19 @@
       "date": "2025-12-27",
       "quote": "on my bucket list for several reasons",
       "url": "https://fastestknowntime.com/fkt/sam-bracke-gr-130-ijzer-belgium-france-2025-12-27",
-      "img": "img/ig-1.jpg"
+      "img": "img/stories/gr130-ijzer.jpg",
+      "imgAlt": "Plaatsnaambord Diksmuide langs de IJzerdijk, onderweg op de GR 130",
+      "featured": false
     },
     {
       "title": "De eerste backyard-zege",
       "race": "Backyard ultra in het Verenigd Koninkrijk · 2024",
       "date": "2024-06-21",
       "quote": "Over 125 miles to celebrate my passion for running",
-      "url": "https://medium.com/runners-life/this-is-how-it-felt-to-win-my-first-backyard-ultra-82c30de61dcf"
+      "url": "https://medium.com/runners-life/this-is-how-it-felt-to-win-my-first-backyard-ultra-82c30de61dcf",
+      "img": "img/stories/eerste-backyard.jpg",
+      "imgAlt": "Sam Bracke met een fotolijst \"Longbridge 100 Backyard Ultra, 30 laps\" na zijn eerste backyard-zege",
+      "featured": false
     }
   ],
   "timeline": [
@@ -185,6 +228,11 @@
       "date": "2026-10-02",
       "title": "Winnaar Last Man Standing",
       "detail": "Terschelling, 61 rondes en 408,7 km na een duel van ruim 60 uur"
+    },
+    {
+      "date": "2024-10-06",
+      "title": "Marathon Brugge",
+      "detail": "Snelste tijd op Strava over het parcours (segmentrecord 2:41:21)"
     }
   ],
   "instagram": [
@@ -219,5 +267,60 @@
     "antwerpAmsterdamKm": 156,
     "pieterpadKm": 498,
     "shoeKm": 700
-  }
+  },
+  "heroImg": "img/hero.jpg",
+  "heroAlt": "Sam Bracke met de Belgische vlag om zijn schouders aan het beeld van Leonidas in Sparta, na 246 km Spartathlon",
+  "heroCredit": "Foto: Alexandros Mpougadis (Studio Photography), via Sams eigen Medium-verslag",
+  "about": {
+    "img": "img/about/portret.jpg",
+    "imgAlt": "Selfie van Sam Bracke met hoofdlamp bij de wegwijzers van de GR de l'Yser, in de ochtendschemering",
+    "paragraphs": [
+      "Sam Bracke groeide op in Diksmuide, tussen de West-Vlaamse polders langs de IJzer, en woont nu in Amsterdam. Hij begon te lopen toen hij een jaar of dertien was. In zijn eigen woorden: \"Rondjes door het park werden stratenloopjes. Halve marathons werden volledige marathons.\"",
+      "Sam loopt niet alleen, hij schrijft er ook over. Op Medium en voor RunningBE vertelt hij zelf hoe het voelt om dagen onderweg te zijn: wat 70 uur lopen doet met je lichaam, je hoofd en je gevoel voor werkelijkheid. Zijn dag begint met een loopje, nog voor het ontbijt.",
+      "In 2024 won hij in Engeland zijn eerste backyard ultra, bijna zonder verwachtingen: hij kwam net terug van elf dagen trekken door de Pyreneeën. Twee jaar later is hij Belgisch kampioen 24 uur, en bleef hij op Terschelling als laatste over in de Last Man Standing, na drie nachten met amper twee uur slaap in blokjes van een kwartier.",
+      "Wat hem drijft, is het lopen zelf. Van Athene naar Sparta, door de winterse Ardennen of in de vrieskou langs de IJzer door zijn thuisstreek: hij zoekt de tochten op die hij zelf omschrijft als \"een strijd tegen tijd, natuur, lichaam én geest.\""
+    ],
+    "quote": "Geld is nooit mijn motivatie om te sporten, want ik doe het uit pure passie voor het lopen zelf.",
+    "quoteSource": "Sam Bracke tegen RunningBE, na zijn zege op Terschelling (oktober 2026)"
+  },
+  "funFacts": [
+    {
+      "text": "Snelste tijd op Strava over het parcours van de Marathon Brugge 2024: 2:41:21"
+    },
+    {
+      "text": "Segmentrecord op 'Don't die at the chair!' bij de backyard in Bierbeek"
+    }
+  ],
+  "stravaEmbeds": [
+    {
+      "label": "Last Man Standing",
+      "sub": "Terschelling · okt 2026",
+      "id": "20455289757",
+      "token": "B2pAmeuIMCKJJaXtA1HCYWtwAGbUEIuoiPILnByEofM"
+    },
+    {
+      "label": "BK 24 uur",
+      "sub": "Mechelen · sep 2026",
+      "id": "20157635656",
+      "token": "mzSbCQdH28cixfQVJERupermHOPokuefZcHNssyP8Yg"
+    },
+    {
+      "label": "Another One Bites the Dust",
+      "sub": "Bierbeek · jul 2026",
+      "id": "19186500573",
+      "token": "Pqw4PS8CKkOLCgKmlSinqH2hgwYvVODfxFlWkoQLKQA"
+    },
+    {
+      "label": "Legends Trail",
+      "sub": "Ardennen · feb 2026",
+      "id": "17486288207",
+      "token": "LqtERb-g4MC6JPryk48totSydjceubPMxrN9e6w6mlQ"
+    },
+    {
+      "label": "Marathon Brugge",
+      "sub": "okt 2024",
+      "id": "12589041025",
+      "token": "NLg02kxHO-pI0eEcZcs7mkPiVOl6yrAhmxrLJDZbf7k"
+    }
+  ]
 }

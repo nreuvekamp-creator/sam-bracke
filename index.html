@@ -9,85 +9,137 @@
 <meta name="theme-color" content="#0b0b0a">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="page-home">
 <a class="skip" href="#main">Naar de inhoud</a>
 
-<header class="hero" id="top">
+<header class="topbar" id="topbar">
+  <div class="topbar__inner wrap">
+    <a class="topbar__brand" href="index.html" aria-label="Sam Bracke, naar de homepage">Sam Bracke</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
+      <span class="menu-btn__bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="menu-btn__lbl">Menu</span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="Hoofdmenu">
+      <ul class="nav__list">
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="index.html#verhalen">Verhalen</a></li>
+        <li><a href="waarom-sam.html">Waarom Sam</a></li>
+        <li><a href="records.html">Records</a></li>
+        <li><a href="tijdlijn.html">Tijdlijn</a></li>
+        <li><a href="https://www.instagram.com/brackesam/" target="_blank" rel="noopener">Instagram <span aria-hidden="true">↗</span><span class="sr-only">(opent in nieuw venster)</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top" aria-label="Sam Bracke">
   <div class="hero__inner wrap">
-    <p class="eyebrow">Ultraloper · Diksmuide</p>
-    <h1 class="hero__name">Sam<br>Bracke</h1>
-    <p class="hero__sub" id="tagline">Ultraloper · Winnaar Last Man Standing 2026 · 61 rondes, 408,7 km</p>
-    <p class="hero__tag" id="hero-tag" hidden></p>
+    <div class="hero__row">
+      <h1 class="bib">
+        <span class="bib__band" aria-hidden="true"><span>Ultra</span><span>BE / NL</span></span>
+        <span class="bib__num" aria-hidden="true">61</span>
+        <span class="bib__name">Sam Bracke</span>
+        <span class="bib__foot" aria-hidden="true">Last Man Standing · 2026</span>
+        <span class="bib__hole bib__hole--tl" aria-hidden="true"></span>
+        <span class="bib__hole bib__hole--tr" aria-hidden="true"></span>
+        <span class="bib__hole bib__hole--bl" aria-hidden="true"></span>
+        <span class="bib__hole bib__hole--br" aria-hidden="true"></span>
+      </h1>
+
+      <div class="since" id="sinds" hidden>
+        <h2 class="since__h">Sinds de laatste run</h2>
+        <div class="timer" role="timer" aria-live="off">
+          <div class="timer__unit"><span class="timer__num" data-t="d">00</span><span class="timer__lbl">dagen</span></div>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <div class="timer__unit"><span class="timer__num" data-t="h">00</span><span class="timer__lbl">uur</span></div>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <div class="timer__unit"><span class="timer__num" data-t="m">00</span><span class="timer__lbl">min</span></div>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <div class="timer__unit"><span class="timer__num" data-t="s">00</span><span class="timer__lbl">sec</span></div>
+        </div>
+        <p class="since__quip" id="quip"></p>
+        <p class="since__meta" id="lastrun"></p>
+      </div>
+    </div>
+
+    <p class="hero__sub" id="tagline">Winnaar Last Man Standing 2026 · 61 rondes, 408,7 km</p>
+    <p class="hero__credit" id="hero-credit" hidden></p>
     <div class="btns">
       <a class="btn btn--accent" href="https://www.instagram.com/brackesam/" target="_blank" rel="noopener">Instagram</a>
       <a class="btn" href="https://www.linkedin.com/in/sam-bracke-02895a59/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
-</header>
+</section>
 
 <main id="main">
-  <section class="section wrap" id="sinds" aria-labelledby="sinds-h" hidden>
-    <h2 class="kicker" id="sinds-h">Sinds de laatste run</h2>
-    <div class="timer" role="timer" aria-live="off">
-      <div class="timer__unit"><span class="timer__num" data-t="d">00</span><span class="timer__lbl">dagen</span></div>
-      <span class="timer__sep" aria-hidden="true">:</span>
-      <div class="timer__unit"><span class="timer__num" data-t="h">00</span><span class="timer__lbl">uren</span></div>
-      <span class="timer__sep" aria-hidden="true">:</span>
-      <div class="timer__unit"><span class="timer__num" data-t="m">00</span><span class="timer__lbl">min</span></div>
-      <span class="timer__sep" aria-hidden="true">:</span>
-      <div class="timer__unit"><span class="timer__num" data-t="s">00</span><span class="timer__lbl">sec</span></div>
+  <section class="section wrap about" id="verhaal" aria-labelledby="verhaal-h" hidden>
+    <h2 class="kicker" id="verhaal-h">Het verhaal van Sam</h2>
+    <div class="about__grid">
+      <figure class="about__photo" id="about-photo" hidden></figure>
+      <div class="about__text" id="about-text"></div>
     </div>
-    <p class="timer__quip" id="quip"></p>
-    <p class="meta" id="lastrun"></p>
-  </section>
-
-  <section class="section wrap" id="kalender" aria-labelledby="kal-h" hidden>
-    <div class="section__head">
-      <h2 class="kicker" id="kal-h">Het jaar in kilometers</h2>
-      <p class="meta" id="kal-sum"></p>
-    </div>
-    <div class="heat" tabindex="0" aria-label="Jaarkalender, horizontaal scrollbaar">
-      <div class="heat__months" id="heat-months" aria-hidden="true"></div>
-      <div class="heat__grid" id="heat-grid"></div>
-    </div>
-    <div class="heat__foot">
-      <p class="heat__info" id="heat-info" aria-live="polite">Tik op een dag voor de kilometers.</p>
-      <div class="heat__legend" aria-hidden="true">minder <i data-l="0"></i><i data-l="1"></i><i data-l="2"></i><i data-l="3"></i><i data-l="4"></i> meer</div>
-    </div>
-  </section>
-
-  <section class="section wrap" id="tellers" aria-labelledby="tel-h" hidden>
-    <h2 class="kicker" id="tel-h">Dit jaar gelopen</h2>
-    <div class="stats" id="stats"></div>
-  </section>
-
-  <section class="section wrap" id="prs" aria-labelledby="prs-h" hidden>
-    <h2 class="kicker" id="prs-h">Persoonlijke records</h2>
-    <div class="cards cards--prs" id="prs-list"></div>
-  </section>
-
-  <section class="section wrap" id="bereik" aria-labelledby="ber-h" hidden>
-    <h2 class="kicker" id="ber-h">Waarom Sam</h2>
-    <div class="impact" id="impact-list"></div>
-    <div class="press" id="press-wrap" hidden>
-      <p class="meta">In de pers</p>
-      <ul class="press__list" id="press-list"></ul>
-    </div>
+    <figure class="about__quote" id="about-quote" hidden>
+      <blockquote id="about-quote-text"></blockquote>
+      <figcaption id="about-quote-src" hidden></figcaption>
+    </figure>
   </section>
 
   <section class="section wrap" id="verhalen" aria-labelledby="ver-h" hidden>
-    <h2 class="kicker" id="ver-h">Verhalen</h2>
-    <div class="cards cards--stories" id="stories-list"></div>
-    <ol class="timeline" id="timeline" hidden></ol>
+    <div class="section__head">
+      <h2 class="kicker" id="ver-h">Verhalen</h2>
+      <div class="slider__ctrl" id="slider-ctrl">
+        <button class="slider__arrow" type="button" id="slider-prev" aria-label="Vorig verhaal"><span aria-hidden="true">←</span></button>
+        <button class="slider__arrow" type="button" id="slider-next" aria-label="Volgend verhaal"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <div class="slider" role="region" aria-roledescription="carrousel" aria-label="Verhalen van Sam">
+      <div class="slider__track" id="stories-track" tabindex="0" aria-label="Verhalen, gebruik de pijltjestoetsen om te schuiven"></div>
+    </div>
+    <div class="slider__dots" id="slider-dots" role="group" aria-label="Kies een verhaal"></div>
+  </section>
+
+  <section class="section wrap strava-sec" id="strava" aria-labelledby="strava-h" hidden>
+    <h2 class="kicker" id="strava-h">De races op Strava</h2>
+    <p class="strava__lead" id="strava-lead"></p>
+    <div class="strava" id="strava-box"></div>
   </section>
 
   <section class="section wrap" id="instagram" aria-labelledby="ig-h" hidden>
-    <h2 class="kicker" id="ig-h">Op Instagram</h2>
+    <div class="section__head">
+      <h2 class="kicker" id="ig-h">Op Instagram</h2>
+      <a class="link-arrow" href="https://www.instagram.com/brackesam/" target="_blank" rel="noopener">@brackesam <span aria-hidden="true">↗</span></a>
+    </div>
     <div class="ig" id="ig-list"></div>
     <div class="btns"><a class="btn" href="https://www.instagram.com/brackesam/" target="_blank" rel="noopener">Volg @brackesam</a></div>
+  </section>
+
+  <section class="section wrap" id="kilometers" aria-labelledby="km-h" hidden>
+    <h2 class="kicker" id="km-h">Kilometers</h2>
+    <div class="km">
+      <div class="km__cal" id="kalender" hidden>
+        <h3 class="km__h">Het jaar, dag per dag</h3>
+        <p class="km__lead">Elk vakje is een dag, hoe feller hoe meer kilometers. Tik of beweeg over een vakje.</p>
+        <div class="heat-wrap" id="heat-wrap">
+          <div class="heat" id="heat">
+            <div class="heat__months" id="heat-months" aria-hidden="true"></div>
+            <div class="heat__grid" id="heat-grid" role="group" aria-label="Jaarkalender: één knop per dag. Pijltjestoetsen om te bewegen."></div>
+          </div>
+          <div class="pop" id="heat-pop" role="status" aria-live="polite" hidden></div>
+        </div>
+        <div class="heat__legend" aria-hidden="true">rust <i data-l="0"></i><i data-l="1"></i><i data-l="2"></i><i data-l="3"></i><i data-l="4"></i> race</div>
+      </div>
+      <div class="km__year" id="tellers" hidden>
+        <h3 class="km__h">Dit jaar gelopen</h3>
+        <p class="km__total"><span class="km__total-num" id="km-total" data-to="0">0</span> <span class="km__total-unit">km</span></p>
+        <p class="km__sub" id="km-sub"></p>
+        <ol class="months" id="months" aria-label="Kilometers per maand"></ol>
+        <ul class="compare" id="compare"></ul>
+        <p class="alltime" id="alltime" hidden></p>
+      </div>
+    </div>
   </section>
 
   <section class="section wrap cta" id="samenwerken" aria-labelledby="sam-h">
@@ -97,12 +149,18 @@
       <a class="btn btn--accent" href="https://ig.me/m/brackesam" target="_blank" rel="noopener">Stuur Sam een bericht op Instagram</a>
       <a class="btn" href="https://www.linkedin.com/in/sam-bracke-02895a59/" target="_blank" rel="noopener">Connect op LinkedIn</a>
     </div>
+    <p class="cta__more"><a class="link-arrow" href="waarom-sam.html">Waarom Sam <span aria-hidden="true">→</span></a></p>
   </section>
 </main>
 
-<footer class="footer wrap">
-  <p id="footer-data">Data: voorbeelddata. Strava-koppeling volgt.</p>
-  <p>© Sam Bracke</p>
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="waarom-sam.html">Waarom Sam</a><a href="records.html">Records</a><a href="tijdlijn.html">Tijdlijn</a>
+    </nav>
+    <p id="footer-data">Data: voorbeelddata. Strava-koppeling volgt.</p>
+    <p>© Sam Bracke</p>
+  </div>
 </footer>
 <script src="app.js" defer></script>
 </body>
