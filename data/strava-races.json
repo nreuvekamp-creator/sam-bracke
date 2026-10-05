@@ -1,0 +1,65 @@
+[
+  {
+    "id": "20455289757",
+    "label": "Last Man Standing",
+    "sub": "Terschelling · okt 2026",
+    "title": "Upfront Last Man Standing 🥇",
+    "date": "2026-10-02",
+    "distance": 410.9,
+    "time": "43:25",
+    "elevation": 647,
+    "map": "img/strava/20455289757-map.jpg",
+    "photo": "img/strava/20455289757-photo.jpg",
+    "url": "https://www.strava.com/activities/20455289757"
+  },
+  {
+    "id": "20157635656",
+    "label": "BK 24 uur",
+    "sub": "Mechelen · sep 2026",
+    "title": "BK 24H 🇧🇪 Belgian champion 🥇",
+    "date": "2026-09-12",
+    "distance": 260.6,
+    "time": "23:51",
+    "elevation": 185,
+    "map": "img/strava/20157635656-map.jpg",
+    "photo": "img/strava/20157635656-photo.jpg",
+    "url": "https://www.strava.com/activities/20157635656"
+  },
+  {
+    "id": "19186500573",
+    "label": "Another One Bites the Dust",
+    "sub": "Bierbeek · jul 2026",
+    "title": "Another One Bites The Dust 2026 🥇",
+    "date": "2026-07-03",
+    "distance": 260.0,
+    "time": "30:15",
+    "elevation": 3698,
+    "map": "img/strava/19186500573-map.jpg",
+    "photo": "img/strava/19186500573-photo.jpg",
+    "url": "https://www.strava.com/activities/19186500573"
+  },
+  {
+    "id": "17486288207",
+    "label": "Legends Trail",
+    "sub": "Ardennen · feb 2026",
+    "title": "Legends Trail 2026 🥉",
+    "date": "2026-02-19",
+    "distance": 358.5,
+    "time": "70:26",
+    "photo": "img/strava/17486288207-photo.jpg",
+    "url": "https://www.strava.com/activities/17486288207"
+  },
+  {
+    "id": "12589041025",
+    "label": "Marathon Brugge",
+    "sub": "okt 2024",
+    "title": "Athora Great Bruges Marathon 🇧🇪",
+    "date": "2024-10-06",
+    "distance": 42.3,
+    "time": "2:41",
+    "elevation": 33,
+    "map": "img/strava/12589041025-map.jpg",
+    "photo": "img/strava/12589041025-photo.jpg",
+    "url": "https://www.strava.com/activities/12589041025"
+  }
+]

@@ -1,11 +1,12 @@
 /* Sam Bracke: rendert alles uit data/strava.json en data/content.json.
    Elke pagina gebruikt dit script; renderers draaien alleen als hun element bestaat.
-   Ontbrekende data = sectie blijft verborgen. Test-overrides: ?content=pad&strava=pad */
+   Ontbrekende data = sectie blijft verborgen. Test-overrides: ?content=pad&strava=pad&races=pad */
 (function () {
   'use strict';
   var params = new URLSearchParams(location.search);
   var CONTENT_URL = safePath(params.get('content')) || 'data/content.json';
   var STRAVA_URL = safePath(params.get('strava')) || 'data/strava.json';
+  var RACES_URL = safePath(params.get('races')) || 'data/strava-races.json';
   var mqReduce = window.matchMedia ? window.matchMedia('(prefers-reduced-motion: reduce)') : { matches: false };
   var nf0 = new Intl.NumberFormat('nl-BE', { maximumFractionDigits: 0 });
   var nf1 = new Intl.NumberFormat('nl-BE', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
@@ -54,7 +55,7 @@
       function () { renderTestimonials(content); },
       function () { renderPrs(content); },
       function () { renderTimeline(content); },
-      function () { renderStravaEmbed(content); },
+      function () { renderRaces(); },
       function () { renderFacts(content); }
     ];
     jobs.forEach(function (j) { try { j(); } catch (e) { console.warn(e); } });
@@ -247,7 +248,12 @@
     });
     show('verhalen');
 
-    var prev = $('slider-prev'), next = $('slider-next'), dotsBox = $('slider-dots'), ctrl = $('slider-ctrl');
+    initSlider({ track: track, prev: $('slider-prev'), next: $('slider-next'), dots: $('slider-dots'), ctrl: $('slider-ctrl'), n: n, dotLabel: 'Ga naar verhaal ' });
+  }
+
+  /* ---------- Gedeelde slider (pijlen, bolletjes, toetsen) ---------- */
+  function initSlider(o) {
+    var track = o.track, prev = o.prev, next = o.next, dotsBox = o.dots, ctrl = o.ctrl, n = o.n;
     var slides = track.children, positions = 1, current = -1;
     function step() { return slides.length > 1 ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth; }
     function maxScroll() { return track.scrollWidth - track.clientWidth; }
@@ -266,10 +272,11 @@
       dotsBox.innerHTML = '';
       var hide = positions < 2;
       dotsBox.hidden = hide; if (ctrl) ctrl.style.visibility = hide ? 'hidden' : '';
+      if (o.onLayout) o.onLayout(!hide);
       for (var i = 0; i < positions; i++) {
         var d = el('button', 'slider__dot');
         d.type = 'button';
-        d.setAttribute('aria-label', 'Ga naar verhaal ' + (i + 1));
+        d.setAttribute('aria-label', o.dotLabel + (i + 1));
         d.addEventListener('click', go.bind(null, i));
         dotsBox.appendChild(d);
       }
@@ -280,12 +287,14 @@
       if (i === current) return;
       current = i;
       Array.prototype.forEach.call(dotsBox.children, function (d, j) { d.setAttribute('aria-current', j === i ? 'true' : 'false'); });
-      prev.disabled = i <= 0; next.disabled = i >= positions - 1;
+      if (prev) prev.disabled = i <= 0;
+      if (next) next.disabled = i >= positions - 1;
+      if (o.onMove) o.onMove(i);
     }
     var raf = 0;
     track.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; sync(); }); }, { passive: true });
-    prev.addEventListener('click', function () { go(idx() - 1); });
-    next.addEventListener('click', function () { go(idx() + 1); });
+    if (prev) prev.addEventListener('click', function () { go(idx() - 1); });
+    if (next) next.addEventListener('click', function () { go(idx() + 1); });
     track.addEventListener('keydown', function (e) {
       if (e.target !== track) return;
       var map = { ArrowRight: idx() + 1, ArrowLeft: idx() - 1, Home: 0, End: positions - 1 };
@@ -526,62 +535,97 @@
     io.observe($('tellers'));
   }
 
-  /* ---------- Strava-embed (officieel formaat) ---------- */
-  function renderStravaEmbed(c) {
-    var box = $('strava-box');
-    if (!box) return;
-    var list = (arr(c.stravaEmbeds) || (c.stravaEmbed ? [c.stravaEmbed] : [])).filter(function (e) {
-      return e && /^\d+$/.test(String(e.id || '')) && /^[\w-]+$/.test(String(e.token || ''));
-    });
-    if (!list.length) return;
-    var lead = $('strava-lead');
-    if (lead) lead.textContent = list.length > 1 ? 'Kies een race en loop mee over de route.' : (str(list[0].title) || list[0].label || '');
-    var tabs = el('div', 'strava-tabs');
-    tabs.setAttribute('role', 'tablist');
-    tabs.setAttribute('aria-label', 'Races op Strava');
-    var frame = el('div', 'strava-frame');
-    frame.setAttribute('role', 'tabpanel');
-    function load(i) {
-      var e = list[i];
-      Array.prototype.forEach.call(tabs.children, function (b, j) { b.setAttribute('aria-selected', j === i ? 'true' : 'false'); b.tabIndex = j === i ? 0 : -1; });
-      frame.innerHTML = '';
-      var ph = el('div', 'strava-embed-placeholder');
-      ph.setAttribute('data-embed-type', 'activity');
-      ph.setAttribute('data-embed-id', String(e.id));
-      ph.setAttribute('data-style', 'standard');
-      ph.setAttribute('data-from-embed', 'false');
-      ph.setAttribute('data-token', String(e.token));
-      frame.appendChild(ph);
-      var old = document.getElementById('strava-embed-js');
-      if (old) old.remove();
-      var sc = document.createElement('script');
-      sc.id = 'strava-embed-js';
-      sc.src = 'https://strava-embeds.com/embed.js' + (old ? '?r=' + Date.now() : '');
-      sc.async = true;
-      document.body.appendChild(sc);
-    }
-    if (list.length > 1) {
-      list.forEach(function (e, i) {
-        var b = el('button', 'strava-tab');
-        b.type = 'button';
-        b.setAttribute('role', 'tab');
-        b.appendChild(el('strong', null, e.label || ('Race ' + (i + 1))));
-        if (str(e.sub)) b.appendChild(el('span', null, e.sub));
-        b.addEventListener('click', function () { load(i); });
-        b.addEventListener('keydown', function (ev) {
-          var d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0;
-          if (!d) return;
-          ev.preventDefault();
-          var j = (i + d + list.length) % list.length;
-          load(j); tabs.children[j].focus();
-        });
-        tabs.appendChild(b);
+  /* ---------- Races op Strava (eigen kaarten uit data/strava-races.json) ---------- */
+  function renderRaces() {
+    var track = $('races-track');
+    if (!track) return;
+    getJSON(RACES_URL).then(function (data) {
+      var list = (arr(data) || []).filter(function (r) { return r && /^\d+$/.test(String(r.id || '')) && (str(r.label) || str(r.title)); });
+      if (!list.length) return;
+      function isTer(r) { return /terschelling/i.test([r.label, r.sub, r.title].join(' ')); }
+      list.sort(function (x, y) {
+        if (isTer(x) !== isTer(y)) return isTer(x) ? -1 : 1;
+        return String(y.date || '').localeCompare(String(x.date || ''));
       });
-      box.appendChild(tabs);
+      list.forEach(function (r, i) { track.appendChild(raceCard(r, i)); });
+      var lead = $('strava-lead');
+      var NUM = ['Nul', 'Eén', 'Twee', 'Drie', 'Vier', 'Vijf', 'Zes', 'Zeven', 'Acht', 'Negen', 'Tien'];
+      if (lead) lead.textContent = (NUM[list.length] || list.length) + (list.length === 1 ? ' race' : ' races') + ', elke kilometer gelogd.';
+      show('strava');
+      var hint = $('races-hint');
+      initSlider({
+        track: track, prev: $('races-prev'), next: $('races-next'), dots: $('races-dots'), ctrl: $('races-ctrl'),
+        n: list.length, dotLabel: 'Ga naar race ',
+        onLayout: function (scrolls) { if (hint) hint.hidden = !scrolls; },
+        onMove: function (i) { if (hint && i > 0) hint.classList.add('is-done'); }
+      });
+    });
+  }
+
+  function raceCard(r, i) {
+    var li = el('li', 'slide race');
+    var card = el('article', 'race__card');
+    var name = str(r.label) || str(r.title);
+    var media = el('div', 'race__media');
+    var main = safeUrl(r.map) || safeUrl(r.photo);
+    var photo = r.map && safeUrl(r.photo);
+    if (main) {
+      var im = el('img', 'race__img' + (r.map ? ' race__img--map' : ''));
+      im.src = main; im.alt = r.map ? 'Route van ' + name + ' op de kaart' : 'Foto van ' + name;
+      im.loading = i < 3 ? 'eager' : 'lazy'; im.decoding = 'async'; im.width = 900; im.height = 676;
+      media.appendChild(im);
+    } else media.classList.add('race__media--empty');
+    if (photo) {
+      var ph = el('img', 'race__photo');
+      ph.src = photo; ph.alt = ''; ph.loading = 'lazy'; ph.decoding = 'async';
+      media.appendChild(ph);
+      var thumb = el('span', 'race__thumb');
+      thumb.setAttribute('aria-hidden', 'true');
+      thumb.style.backgroundImage = 'url("' + photo.replace(/"/g, '') + '")';
+      media.appendChild(thumb);
     }
-    box.appendChild(frame);
-    show('strava');
-    load(0);
+    var medal = /🥇/.test(r.title || '') ? 'Winnaar' : /🥈/.test(r.title || '') ? '2e plaats' : /🥉/.test(r.title || '') ? '3e plaats' : null;
+    if (medal) media.appendChild(el('span', 'race__flag' + (medal === 'Winnaar' ? '' : ' race__flag--alt'), medal));
+    card.appendChild(media);
+
+    var body = el('div', 'race__body');
+    var bits = [];
+    var sub = str(r.sub);
+    if (sub && sub.indexOf(' · ') > 0) bits.push(sub.split(' · ')[0]);
+    if (str(r.date)) bits.push(fmtDate(r.date)); else if (sub) bits.push(sub);
+    if (bits.length) body.appendChild(el('p', 'race__meta', bits.join(' · ')));
+    body.appendChild(el('h3', 'race__name', name));
+
+    var stats = [];
+    var km = Number(r.distance);
+    if (r.distance != null && isFinite(km)) stats.push(['Afstand', nf1.format(km), 'km']);
+    if (str(r.time)) stats.push(['Bewogen', r.time.trim(), 'u']);
+    if (str(r.pace)) stats.push(['Tempo', r.pace.trim(), '/km']);
+    var hm = Number(r.elevation);
+    if (r.elevation != null && isFinite(hm) && stats.length < 3) stats.push(['Hoogte', nf0.format(hm), 'hm']);
+    if (stats.length) {
+      var dl = el('dl', 'race__stats');
+      stats.slice(0, 3).forEach(function (st) {
+        var d = el('div', 'race__stat');
+        d.appendChild(el('dt', null, st[0]));
+        var dd = el('dd');
+        dd.appendChild(document.createTextNode(st[1]));
+        dd.appendChild(el('small', null, st[2]));
+        d.appendChild(dd);
+        dl.appendChild(d);
+      });
+      body.appendChild(dl);
+    }
+    var u = safeUrl(r.url) || ('https://www.strava.com/activities/' + r.id);
+    var a = el('a', 'race__link link-arrow');
+    a.href = u; extLink(a);
+    a.appendChild(document.createTextNode('Bekijk op Strava '));
+    var arrow = el('span', null, '↗'); arrow.setAttribute('aria-hidden', 'true'); a.appendChild(arrow);
+    a.setAttribute('aria-label', 'Bekijk ' + name + ' op Strava (nieuw venster)');
+    body.appendChild(a);
+    card.appendChild(body);
+    li.appendChild(card);
+    return li;
   }
 
   function renderFacts(c) {

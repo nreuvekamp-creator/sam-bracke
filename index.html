@@ -101,10 +101,25 @@
     <div class="slider__dots" id="slider-dots" role="group" aria-label="Kies een verhaal"></div>
   </section>
 
-  <section class="section wrap strava-sec" id="strava" aria-labelledby="strava-h" hidden>
-    <h2 class="kicker" id="strava-h">De races op Strava</h2>
-    <p class="strava__lead" id="strava-lead"></p>
-    <div class="strava" id="strava-box"></div>
+  <section class="section wrap races-sec" id="strava" aria-labelledby="strava-h" hidden>
+    <div class="section__head races__head">
+      <div>
+        <h2 class="kicker" id="strava-h">De races op Strava</h2>
+        <p class="races__lead" id="strava-lead">Vijf races, elke kilometer gelogd.</p>
+      </div>
+      <div class="slider__ctrl" id="races-ctrl">
+        <button class="slider__arrow" type="button" id="races-prev" aria-label="Vorige race"><span aria-hidden="true">←</span></button>
+        <button class="slider__arrow" type="button" id="races-next" aria-label="Volgende race"><span aria-hidden="true">→</span></button>
+      </div>
+    </div>
+    <div class="slider" role="region" aria-roledescription="carrousel" aria-label="Races op Strava">
+      <ol class="slider__track races__track" id="races-track" tabindex="0" aria-label="Races, gebruik de pijltjestoetsen om te schuiven"></ol>
+    </div>
+    <div class="races__foot">
+      <p class="races__hint" id="races-hint" aria-hidden="true">Veeg voor meer races <span>→</span></p>
+      <div class="slider__dots" id="races-dots" role="group" aria-label="Kies een race"></div>
+      <p class="races__attr"><span class="races__attr-mark" aria-hidden="true"></span>Data via Strava</p>
+    </div>
   </section>
 
   <section class="section wrap" id="instagram" aria-labelledby="ig-h" hidden>

@@ -246,17 +246,50 @@ a:hover { color: var(--accent); }
 .slider__dot::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--line); transition: background-color .2s, width .2s; }
 .slider__dot[aria-current="true"]::before { background: var(--accent); width: 22px; border-radius: 4px; }
 
-/* ---------- Strava-embed ---------- */
-.strava__lead { margin: -.5rem 0 1.25rem; color: var(--muted); max-width: 40rem; }
-.strava-sec { display: grid; gap: 0; }
-@media (min-width: 1000px) {
-  .strava-sec { grid-template-columns: minmax(0, 1fr) minmax(0, 640px); gap: 0 4rem; align-items: start; }
-  .strava-sec .kicker, .strava-sec .strava__lead { grid-column: 1; }
-  .strava-sec .strava { grid-column: 2; grid-row: 1 / span 3; }
-  .strava__lead { margin-top: 0; font: 400 2.4rem/1.05 var(--font-display); text-transform: uppercase; color: var(--text); }
+/* ---------- Races op Strava ---------- */
+.races__head { align-items: flex-end; }
+.races__head .kicker { margin: 0 0 .9rem; }
+.races__lead { margin: 0; font: 400 clamp(2rem, 8vw, 3rem)/1 var(--font-display); text-transform: uppercase; letter-spacing: .005em; max-width: 20ch; }
+.races__track { list-style: none; margin: 0; }
+.race__card { position: relative; height: 100%; display: flex; flex-direction: column; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: border-color .25s; }
+.race__card:hover, .race__card:focus-within { border-color: #4a4640; }
+.race__media { position: relative; aspect-ratio: 4 / 3; background: var(--bg-3); overflow: hidden; }
+.race__media--empty { background: radial-gradient(120% 90% at 80% 10%, #3a2016, var(--bg-3) 65%); }
+.race__img, .race__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.race__img { filter: saturate(.9); }
+.race__img--map { filter: saturate(.8) contrast(1.02); }
+.race__photo { opacity: 0; transition: opacity .45s ease; filter: saturate(.9); }
+.race__thumb { position: absolute; right: .7rem; bottom: .7rem; width: 64px; height: 64px; background: var(--paper) center / cover no-repeat; border: 3px solid var(--paper); border-radius: 2px; box-shadow: 0 6px 16px rgba(0,0,0,.45); transform: rotate(3deg); transition: opacity .3s, transform .3s; }
+.race__card:hover .race__photo, .race__card:focus-within .race__photo { opacity: 1; }
+.race__card:hover .race__thumb, .race__card:focus-within .race__thumb { opacity: 0; transform: rotate(3deg) scale(.85); }
+.race__flag { position: absolute; top: .75rem; left: .75rem; background: var(--accent); color: var(--accent-ink); font: 700 .66rem/1 var(--font-text); letter-spacing: .16em; text-transform: uppercase; padding: .4rem .55rem; border-radius: 2px; }
+.race__flag--alt { background: var(--paper); color: var(--ink); }
+.race__body { padding: 1.1rem 1.2rem 1.25rem; display: flex; flex-direction: column; gap: .35rem; flex: 1; }
+.race__meta { margin: 0; font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.race__name { margin: 0 0 .6rem; font: 400 1.65rem/1.05 var(--font-display); text-transform: uppercase; letter-spacing: .01em; }
+.race__stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; margin: 0 0 1.1rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+.race__stat { min-width: 0; }
+.race__stat dt { font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.race__stat dd { margin: .2rem 0 0; font: 400 1.85rem/1 var(--font-display); color: var(--text); white-space: nowrap; }
+.race__stat dd small { font: 600 .72rem/1 var(--font-text); color: var(--muted); margin-left: .2rem; letter-spacing: .02em; }
+.race__stat:first-child dd { color: var(--accent); }
+.race__link { margin-top: auto; align-self: flex-start; }
+.race__link::after { content: ""; position: absolute; inset: 0; z-index: 1; } /* hele kaart klikbaar */
+.race__link:focus-visible { outline: none; }
+.race__card:has(.race__link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px; }
+.races__foot { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: .35rem 1rem; margin-top: .25rem; }
+.races__foot .slider__dots { margin-top: 0; grid-column: 1 / -1; order: -1; }
+@media (min-width: 640px) {
+  .races__foot { display: flex; justify-content: space-between; }
+  .races__foot .slider__dots { order: 0; }
 }
-.strava { max-width: 640px; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; overflow: hidden; min-height: 120px; }
-.strava iframe { max-width: 100% !important; width: 100% !important; display: block; border: 0; }
+.races__hint { margin: 0; grid-column: 1; font-size: .8rem; color: var(--muted); transition: opacity .3s; }
+.races__hint span { display: inline-block; color: var(--accent); animation: races-nudge 1.6s ease-in-out infinite; }
+.races__hint.is-done { opacity: 0; }
+@keyframes races-nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+@media (min-width: 640px) { .races__hint { display: none; } }
+.races__attr { margin: 0 0 0 auto; grid-column: 2; display: inline-flex; align-items: center; gap: .45rem; font-size: .72rem; letter-spacing: .06em; color: var(--muted); }
+.races__attr-mark { width: 12px; height: 12px; border-radius: 2px; background: #fc4c02; flex: none; }
 
 /* ---------- Instagram ---------- */
 .ig { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
@@ -391,15 +424,6 @@ a:hover { color: var(--accent); }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
 
-/* Strava: race-keuze */
-.strava-tabs { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; margin-bottom: 10px; -webkit-overflow-scrolling: touch; }
-.strava-tab { flex: 0 0 auto; scroll-snap-align: start; display: grid; gap: 2px; text-align: left; padding: 8px 12px; background: transparent; color: var(--muted); border: 1px solid var(--line); border-radius: var(--radius); font: inherit; cursor: pointer; }
-.strava-tab strong { color: var(--text); font-size: .9rem; }
-.strava-tab span { font-size: .75rem; }
-.strava-tab[aria-selected="true"] { border-color: var(--accent); box-shadow: inset 0 -3px 0 var(--accent); }
-.strava-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.strava-frame { min-height: 120px; }
-.strava-frame iframe { max-width: 100% !important; width: 100% !important; display: block; border: 0; }
 
 /* ---------- Wat anderen zeggen ---------- */
 .tq-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
@@ -437,7 +461,3 @@ a.known__org:hover .known__seal { opacity: 1; }
 }
 .tq__tr { margin: -.4rem 0 0; font-size: .85rem; line-height: 1.5; color: var(--muted); }
 .story__tr { display: block; margin-top: .45rem; font-size: .82rem; font-style: normal; color: var(--muted); line-height: 1.45; }
-@media (min-width: 640px) {
-  .strava-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; scroll-snap-type: none; padding-bottom: 0; margin-bottom: 12px; }
-  .strava-tab { min-width: 0; align-content: start; }
-}
