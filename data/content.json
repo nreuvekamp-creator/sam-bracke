@@ -17,6 +17,11 @@
       "detail": "350 km door de Ardennen · 3e · 2026"
     },
     {
+      "label": "FKT GR 130 IJzer",
+      "value": "10:54:32",
+      "detail": "111 km self-supported · record · december 2025"
+    },
+    {
       "label": "100 mijl",
       "value": "14:21:45",
       "detail": "HoHo100, Amersfoort 2025"
@@ -32,9 +37,9 @@
       "detail": "Sri Chinmoy 6-uursloop Amsterdam · winnaar · 2024"
     },
     {
-      "label": "FKT GR 130 IJzer",
-      "value": "10:54:32",
-      "detail": "111 km self-supported · record · december 2025"
+      "label": "50 km",
+      "value": "3:37:58",
+      "detail": "snelste 50 km volgens Strava · in wedstrijd 4:06:03"
     },
     {
       "label": "Marathon",
@@ -55,11 +60,6 @@
       "label": "5 km",
       "value": "16:53",
       "detail": "snelste 5 km volgens Strava"
-    },
-    {
-      "label": "50 km",
-      "value": "3:37:58",
-      "detail": "snelste 50 km volgens Strava · in wedstrijd 4:06:03"
     }
   ],
   "impact": [
@@ -80,8 +80,8 @@
       "label": "gelopen sinds hij op Strava zit: meer dan één keer rond de aarde"
     },
     {
-      "value": "5+",
-      "label": "media brachten de zege op Terschelling, van VRT NWS tot FHM"
+      "value": "12",
+      "label": "media in België en Nederland, in het Nederlands én het Frans, schreven over zijn races"
     },
     {
       "value": "12",
@@ -99,37 +99,82 @@
   "press": [
     {
       "name": "VRT NWS",
-      "url": "https://www.vrt.be/vrtnws/nl/2026/10/05/ultraloper-diksmuide-bonne-sabbe-sam-bracke-wedstrijd-60-uur-las/"
+      "url": "https://www.vrt.be/vrtnws/nl/2026/10/05/ultraloper-diksmuide-bonne-sabbe-sam-bracke-wedstrijd-60-uur-las/",
+      "logo": "img/logos/vrt.svg",
+      "logoRatio": 4.25
+    },
+    {
+      "name": "De Telegraaf",
+      "url": "https://www.telegraaf.nl/binnenland/belg-sam-bracke-blijft-na-400-kilometer-hardlopen-als-laatste-over-in-extreme-duurloop-op-terschelling/162581391.html",
+      "logo": "img/logos/telegraaf.svg",
+      "logoRatio": 4.33
     },
     {
       "name": "RunningBE",
-      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/"
+      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/",
+      "logo": "img/logos/runningbe.png",
+      "logoRatio": 7.41
     },
     {
       "name": "Runners.nl",
-      "url": "https://www.runners.nl/nieuws/6-7-kilometer-per-uur-tot-er-niemand-meer-over-is-dit-was-last-man-standing"
+      "url": "https://www.runners.nl/nieuws/6-7-kilometer-per-uur-tot-er-niemand-meer-over-is-dit-was-last-man-standing",
+      "logo": "img/logos/runners.svg",
+      "logoRatio": 9.62,
+      "logoAlt": "Runner's World (Runners.nl)"
     },
     {
       "name": "FHM",
-      "url": "https://fhm.nl/lifestyle/sam-bracke-is-de-ultieme-last-man-standing-na-bizarre-race-van-upfront"
+      "url": "https://fhm.nl/lifestyle/sam-bracke-is-de-ultieme-last-man-standing-na-bizarre-race-van-upfront",
+      "logo": "img/logos/fhm.png",
+      "logoRatio": 3.2
     },
     {
       "name": "Hardloopnieuws",
-      "url": "https://www.hardloopnieuws.nl/sam-bracke-wint-backyard-ultra-na-zestig-uur-lopen-uitslagen/"
+      "url": "https://www.hardloopnieuws.nl/sam-bracke-wint-backyard-ultra-na-zestig-uur-lopen-uitslagen/",
+      "logo": "img/logos/hardloopnieuws.png",
+      "logoRatio": 7.14
     },
     {
       "name": "L'Avenir",
-      "url": "https://www.lavenir.net/sports/running/2026/09/14/il-court-258-km-en-24-heures-sam-bracke-est-le-nouveau-champion-de-belgique-de-la-course-de-24-heures-6OFYIYTTANGHZBJSICRXYWFEPA/"
+      "url": "https://www.lavenir.net/sports/running/2026/09/14/il-court-258-km-en-24-heures-sam-bracke-est-le-nouveau-champion-de-belgique-de-la-course-de-24-heures-6OFYIYTTANGHZBJSICRXYWFEPA/",
+      "logo": "img/logos/lavenir.svg",
+      "logoRatio": 4.14
     },
     {
       "name": "Atletiek Vlaanderen",
-      "url": "https://www.atletiek.be/nieuws/sam-bracke-en-wendy-walraet-belgisch-kampioen-24u"
+      "url": "https://www.atletiek.be/nieuws/sam-bracke-en-wendy-walraet-belgisch-kampioen-24u",
+      "logo": "img/logos/atletiekvlaanderen.svg",
+      "logoRatio": 4.35,
+      "logoScale": 1.15
     },
     {
       "name": "KW.be",
-      "url": "https://kw.be/sport/de-meest-bijzondere-ultraloopervaring-uit-mijn-carriere-sam-33-uit-diksmuide-loopt-250-kilometer-tussen-athene-en-sparta-in-mythische-spartathlon/"
+      "url": "https://kw.be/sport/de-meest-bijzondere-ultraloopervaring-uit-mijn-carriere-sam-33-uit-diksmuide-loopt-250-kilometer-tussen-athene-en-sparta-in-mythische-spartathlon/",
+      "logo": "img/logos/kw.png",
+      "logoRatio": 2.45,
+      "logoAlt": "Krant van West-Vlaanderen (KW.be)",
+      "logoScale": 1.2
+    },
+    {
+      "name": "La DH",
+      "url": "https://www.dhnet.be/sports/omnisports/running/2026/09/14/258-kilometres-parcourus-sam-bracke-est-le-nouveau-champion-de-belgique-de-la-course-de-24-heures-HS3DXMBMJVC7RMOUJIGMCKRXOI/"
+    },
+    {
+      "name": "Belgium Running",
+      "url": "https://www.belgiumrunning.be/actualites/258437-km-en-24-heures-sam-bracke-champion-de-belgique"
+    },
+    {
+      "name": "Radio Reflex",
+      "url": "https://www.radioreflex.be/2026/09/14/buitenaardse-prestaties-op-bk-24-uur-lopen-258-km-en-177-km/"
     }
   ],
+  "organizer": {
+    "name": "Upfront",
+    "logo": "img/logos/upfront.svg",
+    "logoRatio": 0.99,
+    "url": "https://upfront.nl/",
+    "label": "Winnaar van de eerste Upfront Last Man Standing"
+  },
   "stories": [
     {
       "title": "Laatste man op Terschelling",
@@ -137,9 +182,11 @@
       "date": "2026-10-05",
       "quote": "Ik startte met de ambitie om te tonen dat intrinsieke motivatie en pure passie voor wat je doet, je altijd het verst brengen.",
       "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/",
-      "img": "img/stories/terschelling.jpg",
-      "imgAlt": "Sam Bracke in het donker met hoofdlamp en capuchon (sfeerbeeld van een nachtelijke tocht, niet op Terschelling)",
-      "featured": true
+      "img": "img/terschelling.jpg",
+      "imgAlt": "Sam Bracke met hoofdlamp, bezweet en glimlachend, na 61 rondes op Terschelling",
+      "featured": true,
+      "imgPos": "50% 30%",
+      "imgCredit": "Foto: UPFRONT"
     },
     {
       "title": "350 km door de winterse Ardennen",
@@ -149,7 +196,8 @@
       "url": "https://medium.com/runners-life/race-report-legends-trail-2026-350-kilometers-through-the-brutally-beautiful-ardennes-c45425ccfda2",
       "img": "img/stories/legends-trail.jpg",
       "imgAlt": "Sam Bracke loopt over een modderig bospad in de Ardennen tijdens de Legends Trail",
-      "featured": true
+      "featured": true,
+      "translation": "Dit doet 70 uur lopen met je lichaam, je hoofd en je gevoel voor werkelijkheid."
     },
     {
       "title": "Van Athene naar Sparta",
@@ -170,24 +218,26 @@
       "url": "https://fastestknowntime.com/fkt/sam-bracke-gr-130-ijzer-belgium-france-2025-12-27",
       "img": "img/stories/gr130-ijzer.jpg",
       "imgAlt": "Plaatsnaambord Diksmuide langs de IJzerdijk, onderweg op de GR 130",
-      "featured": false
+      "featured": false,
+      "translation": "Om meerdere redenen al lang een droom van me."
     },
     {
       "title": "De eerste backyard-zege",
-      "race": "Backyard ultra in het Verenigd Koninkrijk · 2024",
+      "race": "Longbridge 100 Backyard Ultra (VK) · 30 rondes",
       "date": "2024-06-21",
       "quote": "Over 125 miles to celebrate my passion for running",
       "url": "https://medium.com/runners-life/this-is-how-it-felt-to-win-my-first-backyard-ultra-82c30de61dcf",
       "img": "img/stories/eerste-backyard.jpg",
       "imgAlt": "Sam Bracke met een fotolijst \"Longbridge 100 Backyard Ultra, 30 laps\" na zijn eerste backyard-zege",
-      "featured": false
+      "featured": false,
+      "translation": "Ruim 200 kilometer om mijn passie voor het lopen te vieren."
     }
   ],
   "timeline": [
     {
       "date": "2024-06-21",
       "title": "Eerste backyard-zege",
-      "detail": "Longbridge 100 Backyard Ultra (VK), 194,5 km"
+      "detail": "Longbridge 100 Backyard Ultra in Engeland, 30 rondes (ruim 200 km)"
     },
     {
       "date": "2025-02-01",
@@ -228,11 +278,6 @@
       "date": "2026-10-02",
       "title": "Winnaar Last Man Standing",
       "detail": "Terschelling, 61 rondes en 408,7 km na een duel van ruim 60 uur"
-    },
-    {
-      "date": "2024-10-06",
-      "title": "Marathon Brugge",
-      "detail": "Snelste tijd op Strava over het parcours (segmentrecord 2:41:21)"
     }
   ],
   "instagram": [
@@ -261,7 +306,7 @@
       "url": "https://www.instagram.com/brackesam/"
     }
   ],
-  "pitch": "Sam houdt mensen urenlang vast: 61 uur lang keken duizenden mee hoe hij op Terschelling als laatste overbleef. Hij is Belgisch kampioen 24 uur en schrijft zijn verhalen zelf, voor Medium en RunningBE. Als Vlaming die ook in Nederland furore maakt, bereikt hij lopers in België én Nederland.",
+  "pitch": "Sam houdt mensen urenlang vast: op het drukste moment keken 32.000 mensen tegelijk naar de livestream, terwijl hij op Terschelling als laatste overbleef. Hij is Belgisch kampioen 24 uur en schrijft zijn verhalen zelf, voor Medium en RunningBE. Als Vlaming die ook in Nederland furore maakt, bereikt hij lopers in België én Nederland.",
   "comparisons": {
     "stepsPerKm": 1000,
     "antwerpAmsterdamKm": 156,
@@ -275,10 +320,10 @@
     "img": "img/about/portret.jpg",
     "imgAlt": "Selfie van Sam Bracke met hoofdlamp bij de wegwijzers van de GR de l'Yser, in de ochtendschemering",
     "paragraphs": [
-      "Sam Bracke groeide op in Diksmuide, tussen de West-Vlaamse polders langs de IJzer, en woont nu in Amsterdam. Hij begon te lopen toen hij een jaar of dertien was. In zijn eigen woorden: \"Rondjes door het park werden stratenloopjes. Halve marathons werden volledige marathons.\"",
+      "Sam Bracke groeide op in Diksmuide, tussen de West-Vlaamse polders langs de IJzer, en woont nu in Amsterdam. Hij begon te lopen toen hij een jaar of dertien was. In zijn eigen woorden: “Rondjes door het park werden stratenloopjes. Halve marathons werden volledige marathons.”",
       "Sam loopt niet alleen, hij schrijft er ook over. Op Medium en voor RunningBE vertelt hij zelf hoe het voelt om dagen onderweg te zijn: wat 70 uur lopen doet met je lichaam, je hoofd en je gevoel voor werkelijkheid. Zijn dag begint met een loopje, nog voor het ontbijt.",
-      "In 2024 won hij in Engeland zijn eerste backyard ultra, bijna zonder verwachtingen: hij kwam net terug van elf dagen trekken door de Pyreneeën. Twee jaar later is hij Belgisch kampioen 24 uur, en bleef hij op Terschelling als laatste over in de Last Man Standing, na drie nachten met amper twee uur slaap in blokjes van een kwartier.",
-      "Wat hem drijft, is het lopen zelf. Van Athene naar Sparta, door de winterse Ardennen of in de vrieskou langs de IJzer door zijn thuisstreek: hij zoekt de tochten op die hij zelf omschrijft als \"een strijd tegen tijd, natuur, lichaam én geest.\""
+      "In 2024 won hij in Engeland zijn eerste backyard ultra, bijna zonder verwachtingen: hij kwam net terug van elf dagen trekken door de Pyreneeën. Twee jaar later is hij Belgisch kampioen 24 uur, en bleef hij op Terschelling als laatste over in de Last Man Standing, na drie nachten met amper twee uur slaap in blokjes van een kwartier.",
+      "Wat hem drijft, is het lopen zelf. Van Athene naar Sparta, door de winterse Ardennen of in de vrieskou langs de IJzer door zijn thuisstreek: hij zoekt de tochten op die hij zelf omschrijft als “een strijd tegen tijd, natuur, lichaam én geest.”"
     ],
     "quote": "Geld is nooit mijn motivatie om te sporten, want ik doe het uit pure passie voor het lopen zelf.",
     "quoteSource": "Sam Bracke tegen RunningBE, na zijn zege op Terschelling (oktober 2026)"
@@ -288,7 +333,7 @@
       "text": "Snelste tijd op Strava over het parcours van de Marathon Brugge 2024: 2:41:21"
     },
     {
-      "text": "Segmentrecord op 'Don't die at the chair!' bij de backyard in Bierbeek"
+      "text": "Segmentrecord op ‘Don’t die at the chair!’ bij de backyard in Bierbeek"
     }
   ],
   "stravaEmbeds": [
@@ -321,6 +366,61 @@
       "sub": "okt 2024",
       "id": "12589041025",
       "token": "NLg02kxHO-pI0eEcZcs7mkPiVOl6yrAhmxrLJDZbf7k"
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Sam Bracke, niet alleen de Last Man Standing, maar hoogstwaarschijnlijk ook gekwalificeerd voor het nationale backyard-ultrateam",
+      "who": "UPFRONT, organisator Last Man Standing",
+      "source": "Instagram",
+      "url": "https://www.instagram.com/p/DeGciR6jYRt/",
+      "home": true
+    },
+    {
+      "quote": "Wie de livestream volgde, kreeg de indruk dat Bracke steeds sterker werd naarmate de wedstrijd vorderde.",
+      "who": "RunningBE",
+      "source": "RunningBE",
+      "url": "https://running.be/sam-bracke-wint-eerste-editie-upfront-last-man-standing-61-rondjes-en-408-kilometer/",
+      "home": true,
+      "sourceNote": "RunningBE (waar Sam zelf ook voor schrijft)"
+    },
+    {
+      "quote": "Hij liep 2 dagen en 3 nachten aan een stuk, tot hij als enige van 160 deelnemers overeind bleef.",
+      "who": "VRT NWS",
+      "source": "VRT NWS",
+      "url": "https://www.vrt.be/vrtnws/nl/2026/10/05/ultraloper-diksmuide-bonne-sabbe-sam-bracke-wedstrijd-60-uur-las/"
+    },
+    {
+      "quote": "Belg Sam Bracke blijft na 400 kilometer hardlopen als laatste over in extreme duurloop op Terschelling",
+      "who": "De Telegraaf",
+      "source": "De Telegraaf (kop)",
+      "url": "https://www.telegraaf.nl/binnenland/belg-sam-bracke-blijft-na-400-kilometer-hardlopen-als-laatste-over-in-extreme-duurloop-op-terschelling/162581391.html"
+    },
+    {
+      "quote": "Deze winnaar is geen onbekende in de ultraloopwereld.",
+      "who": "Caitlin van Eekelen, FHM",
+      "source": "FHM",
+      "url": "https://fhm.nl/lifestyle/sam-bracke-is-de-ultieme-last-man-standing-na-bizarre-race-van-upfront"
+    },
+    {
+      "quote": "Wat in eerste instantie misschien niet klinkt als de meest spectaculaire kijksport (lopers die ieder uur hetzelfde rondje lopen), bleek behoorlijk verslavend.",
+      "who": "Jamie Jongman, Runners.nl",
+      "source": "Runners.nl",
+      "url": "https://www.runners.nl/nieuws/6-7-kilometer-per-uur-tot-er-niemand-meer-over-is-dit-was-last-man-standing",
+      "home": true
+    },
+    {
+      "quote": "Buitenaardse prestaties op BK 24 uur lopen",
+      "who": "Radio Reflex",
+      "source": "Radio Reflex, 14 sep 2026",
+      "url": "https://www.radioreflex.be/2026/09/14/buitenaardse-prestaties-op-bk-24-uur-lopen-258-km-en-177-km/"
+    },
+    {
+      "quote": "Bracke avait encore marqué les esprits cet été en remportant Another One Bites the Dust.",
+      "who": "Thibaut Hugé, La DH",
+      "source": "La DH, 14 sep 2026",
+      "url": "https://www.dhnet.be/sports/omnisports/running/2026/09/14/258-kilometres-parcourus-sam-bracke-est-le-nouveau-champion-de-belgique-de-la-course-de-24-heures-HS3DXMBMJVC7RMOUJIGMCKRXOI/",
+      "translation": "Bracke had deze zomer al indruk gemaakt door Another One Bites the Dust te winnen."
     }
   ]
 }

@@ -51,6 +51,7 @@
       function () { renderYear(strava, content); },
       function () { renderPitch(content); },
       function () { renderImpact(content); },
+      function () { renderTestimonials(content); },
       function () { renderPrs(content); },
       function () { renderTimeline(content); },
       function () { renderStravaEmbed(content); },
@@ -61,7 +62,7 @@
     if ((kal && !kal.hidden) || (tel && !tel.hidden)) show('kilometers');
     var fd = $('footer-data');
     if (fd) {
-      if (str(strava.note)) fd.textContent = 'Data: ' + strava.note.trim();
+      if (str(strava.note)) { var nt = strava.note.trim(); fd.textContent = 'Data: ' + nt.charAt(0).toLowerCase() + nt.slice(1); }
       else if (strava.sample === false) fd.textContent = 'Data: Strava';
     }
   });
@@ -210,14 +211,16 @@
       var media = el('div', 'story__media');
       var year = s.date ? String(s.date).slice(0, 4) : '';
       var placeholder = function () { media.innerHTML = ''; media.appendChild(el('span', 'story__ph', year)).setAttribute('aria-hidden', 'true'); if (flag) media.appendChild(flag); };
-      var flag = s.featured === true ? el('span', 'story__flag', 'Uitgelicht') : null;
+      var flag = null; // volgorde doet het werk: uitgelichte verhalen staan vooraan
       var src = safeUrl(s.img);
       if (src) {
         var img = el('img');
         img.src = src; img.loading = 'lazy'; img.decoding = 'async';
         img.alt = str(s.imgAlt) || ('Foto bij het verhaal ' + (s.title || ''));
         img.onerror = placeholder;
+        if (str(s.imgPos)) img.style.objectPosition = s.imgPos.trim();
         media.appendChild(img);
+        if (str(s.imgCredit)) media.appendChild(el('span', 'story__credit', s.imgCredit.trim()));
         if (flag) media.appendChild(flag);
       } else placeholder();
       k.appendChild(media);
@@ -226,7 +229,11 @@
       var meta = [s.race, s.date ? fmtDate(s.date) : null].filter(Boolean).join(' · ');
       if (meta) b.appendChild(el('p', 'meta', meta));
       if (s.title) b.appendChild(el('h3', 'story__title', s.title));
-      if (str(s.quote)) b.appendChild(el('blockquote', 'story__quote', '“' + stripQuotes(s.quote.trim()) + '”'));
+      if (str(s.quote)) {
+        var sq = el('blockquote', 'story__quote', '“' + stripQuotes(s.quote.trim()) + '”');
+        if (str(s.translation)) { sq.lang = str(s.lang) || 'en'; var st = el('span', 'story__tr', s.translation.trim()); st.lang = 'nl'; sq.appendChild(st); }
+        b.appendChild(sq);
+      }
       var u = safeUrl(s.url);
       if (u) {
         var a = el('a', 'story__link', 'Lees het hele verhaal');
@@ -499,6 +506,7 @@
       show('alltime');
     }
     show('tellers');
+    if ($('compare') && $('compare').children.length) show('km-extra');
 
     // bij in beeld komen: teller optellen + balkjes groeien
     if (mqReduce.matches || !('IntersectionObserver' in window)) return;
@@ -599,7 +607,10 @@
         impact.forEach(function (i) {
           if (!i || !i.value) return;
           var d = el('div', 'impact__item');
-          d.appendChild(el('span', 'impact__value', i.value));
+          var v = el('span', 'impact__value'), mm = /^(\S+)\s+(km|uur)$/.exec(String(i.value).trim());
+          if (mm) { v.appendChild(document.createTextNode(mm[1] + '\u00a0')); v.appendChild(el('small', null, mm[2])); }
+          else v.textContent = i.value;
+          d.appendChild(v);
           if (i.label) d.appendChild(el('span', 'impact__label', i.label));
           box.appendChild(d);
         });
@@ -607,18 +618,88 @@
       }
     }
     var pl = $('press-list');
-    if (pl) {
-      var press = arr(c.press);
-      if (press) {
-        press.forEach(function (p) {
-          if (!p || !p.name) return;
-          var li = el('li'), u = safeUrl(p.url);
-          if (u) { var a = el('a', null, p.name); a.href = u; li.appendChild(extLink(a)); }
-          else li.appendChild(el('span', null, p.name));
-          pl.appendChild(li);
-        });
-        if (pl.children.length) show('press-wrap');
-      }
+    if (pl && renderPress(pl, c)) show('press-wrap');
+  }
+
+  /* ---------- Bekend van: organisator + perslogo's ---------- */
+  function renderPress(box, c) {
+    var count = 0, org = c.organizer;
+    if (org && str(org.name)) {
+      var ou = safeUrl(org.url), oa = el(ou ? 'a' : 'div', 'known__org');
+      if (ou) { oa.href = ou; extLink(oa); }
+      var seal = safeUrl(org.logo);
+      if (seal) { var si = el('img', 'known__seal'); si.src = seal; si.alt = ''; si.decoding = 'async'; si.onerror = function () { si.remove(); }; oa.appendChild(si); }
+      var ot = el('span', 'known__org-txt');
+      ot.appendChild(el('strong', null, org.name.trim()));
+      if (str(org.label)) ot.appendChild(el('span', null, org.label.trim()));
+      oa.appendChild(ot);
+      box.appendChild(oa); count++;
+    }
+    var press = arr(c.press);
+    if (press) {
+      var ul = el('ul', 'logos');
+      press.forEach(function (p) {
+        if (!p || !str(p.name)) return;
+        var li = el('li'), u = safeUrl(p.url), name = p.name.trim();
+        var a = el(u ? 'a' : 'span', 'logos__item');
+        if (u) { a.href = u; extLink(a); }
+        var src = safeUrl(p.logo), r = Number(p.logoRatio);
+        function asText() { a.innerHTML = ''; a.classList.add('logos__item--txt'); a.textContent = name; }
+        if (src) {
+          var im = el('img'); im.src = src; im.alt = str(p.logoAlt) || name; im.decoding = 'async'; im.loading = 'lazy';
+          if (r > 0) {
+            // optisch gelijke hoogte: brede woordmerken iets lager, compacte logo's iets hoger
+            var sc = Number(p.logoScale) > 0 ? Number(p.logoScale) : 1;
+            a.style.setProperty('--f', (Math.max(.8, Math.min(1.25, Math.pow(4.2 / r, .3))) * sc).toFixed(3));
+            a.style.setProperty('--r', r);
+          }
+          im.onerror = asText;
+          a.appendChild(im);
+        } else asText();
+        if (u) a.setAttribute('title', name);
+        li.appendChild(a); ul.appendChild(li); count++;
+      });
+      if (ul.children.length) box.appendChild(ul);
+    }
+    return count;
+  }
+
+  /* ---------- Wat anderen zeggen ---------- */
+  function quoteCard(t, full) {
+    var fig = el('figure', 'tq');
+    var bq = el('blockquote', 'tq__quote', '“' + stripQuotes(t.quote.trim()) + '”');
+    if (str(t.lang)) bq.lang = t.lang.trim();
+    else if (str(t.translation)) bq.lang = 'fr';
+    fig.appendChild(bq);
+    if (str(t.translation)) fig.appendChild(el('p', 'tq__tr', 'Vertaald: ' + t.translation.trim()));
+    var cap = el('figcaption', 'tq__who');
+    cap.appendChild(el('strong', null, str(t.who) || str(t.source) || ''));
+    var u = safeUrl(t.url);
+    if (u) {
+      var lbl = full && str(t.sourceNote) ? t.sourceNote.trim() : (str(t.source) && t.source !== t.who) ? t.source : 'Lees het artikel';
+      var a = el('a', 'tq__src', lbl);
+      a.href = u; extLink(a);
+      cap.appendChild(a);
+    } else if (str(t.source) && t.source !== t.who) cap.appendChild(el('span', 'tq__src', t.source));
+    fig.appendChild(cap);
+    return fig;
+  }
+
+  function renderTestimonials(c) {
+    var list = (arr(c.testimonials) || []).filter(function (t) { return t && str(t.quote) && (str(t.who) || str(t.source)); });
+    var box = $('tq-list');
+    if (box && list.length) {
+      list.forEach(function (t) { box.appendChild(quoteCard(t, true)); });
+      show('anderen');
+    }
+    var home = $('tq-home');
+    if (home && list.length) {
+      var picks = list.filter(function (t) { return t.home === true; });
+      if (!picks.length) picks = list;
+      picks.slice(0, 3).forEach(function (t) { home.appendChild(quoteCard(t)); });
+      var known = $('tq-known');
+      if (known && renderPress(known, c)) known.hidden = false;
+      show('anderen-home');
     }
   }
 
